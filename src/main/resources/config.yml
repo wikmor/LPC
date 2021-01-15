@@ -1,0 +1,4 @@
+chat-format: "{prefix}{name}&r: {message}"
+group-formats:
+#  default: "[default] {name}&r: {message}"
+#  admin: "[admin] {name}&r: {message}"

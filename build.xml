@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<project name="LPC" default="Build">
+    <condition property="serverPath" value="C:\Users\Wiktor\Desktop\1.16.4">
+        <os family="windows"/>
+    </condition>
+
+    <target name="Build">
+        <jar jarfile="${serverPath}\plugins\${ant.project.name}.jar" basedir="../LPC/target/classes/" includes="**/*"/>
+    </target>
+</project>

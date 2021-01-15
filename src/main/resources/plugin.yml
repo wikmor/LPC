@@ -1,0 +1,13 @@
+main: ${main.class}
+name: ${project.name}
+version: ${project.version}
+description: An addon to LuckPerms that formats chat.
+api-version: 1.13
+author: OnCode9
+depend: [LuckPerms]
+softdepend: [PlaceholderAPI]
+commands:
+  lpc:
+    description: Reloads the configuration file.
+    permission: lpc.reload
+    usage: "Usage: /<command> reload"
