@@ -65,11 +65,14 @@ public final class LPCPlugin extends JavaPlugin implements Listener {
 				.replace("{prefix}", getPrefix(player))
 				.replace("{prefixes}", getPrefixes(player))
 				.replace("{name}", player.getName())
-				.replace("{display_name}", player.getDisplayName())
 				.replace("{suffix}", getSuffix(player))
 				.replace("{suffixes}", getSuffixes(player))
-				.replace("{username-color}", getColorPerGroup(group, "username-color"))
-				.replace("{message-color}", getColorPerGroup(group, "message-color"));
+				.replace("{username-color}", playerMeta(player).getMetaValue("username-color") != null
+						? playerMeta(player).getMetaValue("username-color") : groupMeta(group).getMetaValue("username-color") != null
+						? groupMeta(group).getMetaValue("username-color") : "")
+				.replace("{message-color}", playerMeta(player).getMetaValue("message-color") != null
+						? playerMeta(player).getMetaValue("message-color") : groupMeta(group).getMetaValue("message-color") != null
+						? groupMeta(group).getMetaValue("message-color") : "");
 
 		format = translateHexColorCodes(colorize(isPlaceholderAPIEnabled() ? PlaceholderAPI.setPlaceholders(player, format) : format));
 
@@ -131,12 +134,6 @@ public final class LPCPlugin extends JavaPlugin implements Listener {
 			suffixes.append(prefix);
 
 		return suffixes.toString();
-	}
-
-	private String getColorPerGroup(final String group, final String key) {
-		final String colorPerGroup = groupMeta(group).getMetaValue(key);
-
-		return colorPerGroup != null ? colorPerGroup : "&r";
 	}
 
 	private CachedMetaData playerMeta(final Player player) {

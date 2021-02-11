@@ -8,6 +8,7 @@
     <artifactId>lpc</artifactId>
     <name>LPC</name>
     <version>3.2.0</version>
+    <description>A chat formatting plugin for LuckPerms.</description>
 
     <properties>
         <main.class>me.oncode9.lpc.LPCPlugin</main.class>
@@ -34,7 +35,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.4-R0.1-SNAPSHOT</version>
+            <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
