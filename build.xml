@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <project name="LPC" default="Build">
-    <condition property="serverPath" value="C:\Users\Wiktor\Desktop\1.16.4">
+    <condition property="serverPath" value="C:\Users\Wiktor\Desktop\1.8.8">
         <os family="windows"/>
     </condition>
 

@@ -1,26 +1,24 @@
-# LPC Configuration File
-# It is recommended to read the guide at https://luckperms.net/wiki/Prefixes,-Suffixes-&-Meta before setting up the plugin.
+# LPC Configuration
+# Please read the https://luckperms.net/wiki/Prefixes,-Suffixes-&-Meta before you set up.
 #
-# Built-in Placeholders:
-# {world} = world name
-# {prefix} = user's primary prefix
-# {prefixes} = user's prefixes sorted by the highest priority
-# {name} = player name
-# {suffix} = user's primary suffix
-# {suffixes} = user's suffixes sorted by the highest priority
-# {username-color} = username color for a group or a player
-# {message-color} = message color for a group or a player
-# For extra placeholders, install PlaceholderAPI.
+# Placeholders:
+# {message} - the chat message
+# {name} - the player's name
+# {displayname} - the player's display name / nickname
+# {world} - the world name of the player's current world
+# {prefix} - the player's highest priority prefix
+# {suffix} - the player's highest priority suffix
+# {prefixes} - the player's prefixes sorted by the highest priority
+# {suffixes} - the player's suffixes sorted by the highest priority
+# {username-color} - the player's or the group's username color
+# {message-color} - the player's or the group's message color
 #
-# To make changes in game, reload this configuration file by running '/lpc reload' command (make sure you have the 'lpc.reload' permission).
-#
+# To reload the configuration, run '/lpc reload' command. Make sure you have the 'lpc.reload' permission assigned.
 # More information can be found at https://www.spigotmc.org/resources/68965.
-
-# A standard chat format for all chat, which will meet almost every user's expectations.
 chat-format: "{prefix}{name}&r: {message}"
 
-# Use group formats, if you need e.g. a different placeholder arrangement for different groups or want to display custom Unicode using resource pack.
-# Make sure to remove the '#' to allow the setting to be read.
+# Set the format per group.
+# Note: Option for more advanced users. Remove comments to run.
 group-formats:
 #  default: "[default] {name}&r: {message}"
 #  admin: "[admin] {name}&r: {message}"
