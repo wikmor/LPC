@@ -5,7 +5,7 @@
 
     <groupId>me.bukkitsmurf</groupId>
     <artifactId>lpc</artifactId>
-    <version>3.4.3</version>
+    <version>3.4.2</version>
 
     <name>LPC</name>
     <description>A chat formatting plugin for LuckPerms.</description>
