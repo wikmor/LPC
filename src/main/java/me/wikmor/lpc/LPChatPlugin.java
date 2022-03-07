@@ -26,13 +26,10 @@ public final class LPChatPlugin extends JavaPlugin implements Listener {
 
 	private LuckPerms luckPerms;
 	
-	private boolean papi;
-	
 	@Override
 	public void onEnable() {
 		// Load an instance of 'LuckPerms' using the services manager.
 		this.luckPerms = getServer().getServicesManager().load(LuckPerms.class);
-		this.papi = getServer().getPluginManager().isPluginEnabled("PlaceholderAPI");
 
 		saveDefaultConfig();
 		getServer().getPluginManager().registerEvents(this, this);
@@ -77,11 +74,8 @@ public final class LPChatPlugin extends JavaPlugin implements Listener {
 				.replace("{displayname}", player.getDisplayName())
 				.replace("{username-color}", metaData.getMetaValue("username-color") != null ? metaData.getMetaValue("username-color") : "")
 				.replace("{message-color}", metaData.getMetaValue("message-color") != null ? metaData.getMetaValue("message-color") : "");
-		
-		format = translateHexColorCodes(colorize(format));
-		
-		if(papi)
-			format = PlaceholderAPI.setPlaceholders(player, format);
+
+		format = translateHexColorCodes(colorize(getServer().getPluginManager().isPluginEnabled("PlaceholderAPI") ? PlaceholderAPI.setPlaceholders(player, format) : format));
 
 		event.setFormat(format.replace("{message}", player.hasPermission("lpc.colorcodes") && player.hasPermission("lpc.rgbcodes")
 				? translateHexColorCodes(colorize(message)) : player.hasPermission("lpc.colorcodes") ? colorize(message) : player.hasPermission("lpc.rgbcodes")
