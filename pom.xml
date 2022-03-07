@@ -3,16 +3,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.bukkitsmurf</groupId>
+    <groupId>me.wikmor</groupId>
     <artifactId>lpc</artifactId>
-    <version>3.4.2</version>
+    <version>3.4.1</version>
 
     <name>LPC</name>
     <description>A chat formatting plugin for LuckPerms.</description>
 
     <properties>
 
-        <main.class>me.bukkitsmurf.lpc.LPChatPlugin</main.class>
+        <main.class>me.wikmor.lpc.LPChatPlugin</main.class>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -40,7 +40,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.18.2-R0.1-SNAPSHOT</version>
+            <version>1.18.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 

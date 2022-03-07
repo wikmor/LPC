@@ -2,7 +2,7 @@ name: ${project.name}
 version: ${project.version}
 main: ${main.class}
 description: ${project.description}
-author: BukkitSmurf
+author: wikmor
 depend: [LuckPerms]
 softdepend: [PlaceholderAPI]
 api-version: 1.13
