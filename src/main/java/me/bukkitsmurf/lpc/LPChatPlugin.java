@@ -77,13 +77,14 @@ public final class LPChatPlugin extends JavaPlugin implements Listener {
 				.replace("{username-color}", metaData.getMetaValue("username-color") != null ? metaData.getMetaValue("username-color") : "")
 				.replace("{message-color}", metaData.getMetaValue("message-color") != null ? metaData.getMetaValue("message-color") : "");
 
-		format = translateHexColorCodes(colorize(format));
+		format = translateHexColorCodes(format);
+		format = colorize(format);
 
 		if (papi)
 			format = PlaceholderAPI.setPlaceholders(player, format);
 
 		event.setFormat(format.replace("{message}", player.hasPermission("lpc.colorcodes") && player.hasPermission("lpc.rgbcodes")
-				? translateHexColorCodes(colorize(message)) : player.hasPermission("lpc.colorcodes") ? colorize(message) : player.hasPermission("lpc.rgbcodes")
+				? colorize(translateHexColorCodes(message)) : player.hasPermission("lpc.colorcodes") ? colorize(message) : player.hasPermission("lpc.rgbcodes")
 				? translateHexColorCodes(message) : message).replace("%", "%%"));
 	}
 
@@ -91,21 +92,22 @@ public final class LPChatPlugin extends JavaPlugin implements Listener {
 		return ChatColor.translateAlternateColorCodes('&', message);
 	}
 
-	private String translateHexColorCodes(final String message) {
-		final char colorChar = ChatColor.COLOR_CHAR;
+	private String translateHexColorCodes(String message) {
+		if (message == null)
+			return "null";
 
-		final Matcher matcher = HEX_PATTERN.matcher(message);
-		final StringBuffer buffer = new StringBuffer(message.length() + 4 * 8);
+		Matcher matcher = HEX_PATTERN.matcher(message);
+		StringBuffer sb = new StringBuffer();
 
 		while (matcher.find()) {
-			final String group = matcher.group(1);
+			StringBuilder replacement = new StringBuilder(14).append("&x");
 
-			matcher.appendReplacement(buffer, colorChar + "x"
-					+ colorChar + group.charAt(0) + colorChar + group.charAt(1)
-					+ colorChar + group.charAt(2) + colorChar + group.charAt(3)
-					+ colorChar + group.charAt(4) + colorChar + group.charAt(5));
+			for (char character : matcher.group(1).toCharArray())
+				replacement.append('&').append(character);
+
+			matcher.appendReplacement(sb, replacement.toString());
 		}
 
-		return matcher.appendTail(buffer).toString();
+		return matcher.appendTail(sb).toString();
 	}
 }
