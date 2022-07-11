@@ -1,4 +1,4 @@
-package me.bukkitsmurf.lpc;
+package me.wikmor.lpc;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.luckperms.api.LuckPerms;
@@ -20,7 +20,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public final class LPChatPlugin extends JavaPlugin implements Listener {
+public final class LPC extends JavaPlugin implements Listener {
 
 	private static final Pattern HEX_PATTERN = Pattern.compile("&#([A-Fa-f0-9]{6})");
 

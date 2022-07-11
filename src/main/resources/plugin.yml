@@ -1,11 +1,11 @@
 name: ${project.name}
+description: ${project.description}
 version: ${project.version}
 main: ${main.class}
-description: ${project.description}
-author: BukkitSmurf
+author: ${author}
+api-version: 1.13
 depend: [LuckPerms]
 softdepend: [PlaceholderAPI]
-api-version: 1.13
 commands:
   lpc:
     description: Reload the configuration.

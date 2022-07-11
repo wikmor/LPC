@@ -1,113 +1,70 @@
+#################
+## IDEA
+#################
+
 # User-specific stuff
 .idea/
-
+.idea_modules/
 *.iml
-*.ipr
-*.iws
 
 # IntelliJ
 out/
 
-# Compiled class file
-*.class
+target/
 
-# Log file
-*.log
+#################
+## Eclipse
+#################
 
-# BlueJ files
-*.ctxt
+*.pydevproject
+.project
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.apt_generated/
+.apt_generated_tests/
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+!/.mvn/wrapper/maven-wrapper.jar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# External tool builders
+.externalToolBuilders/
 
-*~
+# Locally stored "Eclipse launch configurations"
+*.launch
 
-# temporary files which can be created if a process still has a handle open of a deleted file
-.fuse_hidden*
+# CDT-specific
+.cproject
 
-# KDE directory preferences
-.directory
+# PDT-specific
+.buildpath
 
-# Linux trash folder which might appear on any partition or disk
-.Trash-*
+# Builder
+builder.xml
+build.xml
 
-# .nfs files are created when an open file is removed but is still being accessed
-.nfs*
+#############
+## Windows detritus
+#############
 
-# General
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Icon must end with two \r
-Icon
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-# Windows thumbnail cache files
+# Windows image file caches
 Thumbs.db
-Thumbs.db:encryptable
 ehthumbs.db
-ehthumbs_vista.db
-
-# Dump file
-*.stackdump
 
 # Folder config file
-[Dd]esktop.ini
+Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# Windows Installer files
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-target/
-
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
-.flattened-pom.xml
-
-# Common working directory
-run/
+# Mac crap
+.DS_Store
+REBASE.bat

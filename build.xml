@@ -1,10 +1,7 @@
 <?xml version="1.0" ?>
+<!DOCTYPE xml>
 <project name="LPC" default="Build">
-    <condition property="serverPath" value="C:\Users\Wiktor\Desktop\1.18.1">
-        <os family="windows"/>
-    </condition>
-
-    <target name="Build">
-        <jar jarfile="${serverPath}\plugins\${ant.project.name}.jar" basedir="../LPC/target/classes/" includes="**/*"/>
-    </target>
+	<target name="Build">
+		<jar jarfile="/Users/Wiktor/Test Servers/1.19/plugins/${ant.project.name}.jar" basedir="./target/classes/" includes="**/*"></jar>
+	</target>
 </project>
