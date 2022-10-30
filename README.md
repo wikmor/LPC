@@ -17,4 +17,4 @@ A chat formatting plugin for LuckPerms.
 
 >Bold `lpc.bold`
 
->Magic `lpcmagic`
+>Magic `lpc.magic`

@@ -60,18 +60,23 @@ public final class LPC extends JavaPlugin implements Listener {
 		Player player = event.getPlayer();
 		if (!player.hasPermission("lpc.magic")) {
 			event.setMessage(event.getMessage().replace("&k", ""));
+			event.setMessage(event.getMessage().replace("&K", ""));
 		}
 		if (!player.hasPermission("lpc.bold")) {
 			event.setMessage(event.getMessage().replace("&l", ""));
+			event.setMessage(event.getMessage().replace("&L", ""));
 		}
 		if (!player.hasPermission("lpc.underline")) {
 			event.setMessage(event.getMessage().replace("&n", ""));
+			event.setMessage(event.getMessage().replace("&N", ""));
 		}
 		if (!player.hasPermission("lpc.strikethrough")) {
 			event.setMessage(event.getMessage().replace("&m", ""));
+			event.setMessage(event.getMessage().replace("&M", ""));
 		}
 		if (!player.hasPermission("lpc.italics")) {
 			event.setMessage(event.getMessage().replace("&o", ""));
+			event.setMessage(event.getMessage().replace("&O", ""));
 		}
 	}
 
