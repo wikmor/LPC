@@ -55,6 +55,31 @@ public final class LPC extends JavaPlugin implements Listener {
 		return new ArrayList<>();
 	}
 
+	@EventHandler(priority = EventPriority.LOW)
+	public void onLowChat(AsyncPlayerChatEvent event){
+		Player player = event.getPlayer();
+		if (!player.hasPermission("lpc.magic")) {
+			event.setMessage(event.getMessage().replace("&k", ""));
+			event.setMessage(event.getMessage().replace("&K", ""));
+		}
+		if (!player.hasPermission("lpc.bold")) {
+			event.setMessage(event.getMessage().replace("&l", ""));
+			event.setMessage(event.getMessage().replace("&L", ""));
+		}
+		if (!player.hasPermission("lpc.underline")) {
+			event.setMessage(event.getMessage().replace("&n", ""));
+			event.setMessage(event.getMessage().replace("&N", ""));
+		}
+		if (!player.hasPermission("lpc.strikethrough")) {
+			event.setMessage(event.getMessage().replace("&m", ""));
+			event.setMessage(event.getMessage().replace("&M", ""));
+		}
+		if (!player.hasPermission("lpc.italics")) {
+			event.setMessage(event.getMessage().replace("&o", ""));
+			event.setMessage(event.getMessage().replace("&O", ""));
+		}
+	}
+
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onChat(final AsyncPlayerChatEvent event) {
 		final String message = event.getMessage();
@@ -63,6 +88,9 @@ public final class LPC extends JavaPlugin implements Listener {
 		// Get a LuckPerms cached metadata for the player.
 		final CachedMetaData metaData = this.luckPerms.getPlayerAdapter(Player.class).getMetaData(player);
 		final String group = metaData.getPrimaryGroup();
+
+
+
 
 		String format = getConfig().getString(getConfig().getString("group-formats." + group) != null ? "group-formats." + group : "chat-format")
 				.replace("{prefix}", metaData.getPrefix() != null ? metaData.getPrefix() : "")
@@ -76,6 +104,14 @@ public final class LPC extends JavaPlugin implements Listener {
 				.replace("{message-color}", metaData.getMetaValue("message-color") != null ? metaData.getMetaValue("message-color") : "");
 
 		format = colorize(translateHexColorCodes(getServer().getPluginManager().isPluginEnabled("PlaceholderAPI") ? PlaceholderAPI.setPlaceholders(player, format) : format));
+
+
+
+
+
+
+
+
 
 		event.setFormat(format.replace("{message}", player.hasPermission("lpc.colorcodes") && player.hasPermission("lpc.rgbcodes")
 				? colorize(translateHexColorCodes(message)) : player.hasPermission("lpc.colorcodes") ? colorize(message) : player.hasPermission("lpc.rgbcodes")

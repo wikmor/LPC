@@ -3,8 +3,8 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.wikmor</groupId>
-	<artifactId>lpc</artifactId>
-	<name>LPC</name>
+	<artifactId>lpc-vanillaplus</artifactId>
+	<name>LPC-vanillaplus</name>
 	<description>A chat formatting plugin for LuckPerms.</description>
 	<version>3.6.0</version>
 	<packaging>jar</packaging>
