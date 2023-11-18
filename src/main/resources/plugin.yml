@@ -6,6 +6,7 @@ author: ${author}
 api-version: 1.13
 depend: [LuckPerms]
 softdepend: [PlaceholderAPI]
+folia-supported: true
 commands:
   lpc:
     description: Reload the configuration.
