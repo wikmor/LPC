@@ -4,6 +4,7 @@ version: ${project.version}
 main: ${main.class}
 author: ${author}
 api-version: 1.13
+folia-supported: true
 depend: [LuckPerms]
 softdepend: [PlaceholderAPI]
 commands:
