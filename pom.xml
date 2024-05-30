@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.wikmor</groupId>
 	<artifactId>lpc-vanillaplus</artifactId>
-	<name>LPC-vanillaplus</name>
+	<name>LPC-color</name>
 	<description>A chat formatting plugin for LuckPerms.</description>
 	<version>3.6.0</version>
 	<packaging>jar</packaging>
