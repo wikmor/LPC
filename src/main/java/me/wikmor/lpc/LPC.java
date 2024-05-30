@@ -78,6 +78,7 @@ public final class LPC extends JavaPlugin implements Listener {
 			event.setMessage(event.getMessage().replace("&o", ""));
 			event.setMessage(event.getMessage().replace("&O", ""));
 		}
+
 	}
 
 	@EventHandler(priority = EventPriority.HIGHEST)
@@ -105,17 +106,19 @@ public final class LPC extends JavaPlugin implements Listener {
 
 		format = colorize(translateHexColorCodes(getServer().getPluginManager().isPluginEnabled("PlaceholderAPI") ? PlaceholderAPI.setPlaceholders(player, format) : format));
 
+		String formattedMessage;
 
+		if (player.hasPermission("lpc.colorcodes") && player.hasPermission("lpc.rgbcodes")) {
+			formattedMessage = colorize(translateHexColorCodes(message));
+		} else if (player.hasPermission("lpc.colorcodes")) {
+			formattedMessage = colorize(message);
+		} else if (player.hasPermission("lpc.rgbcodes")) {
+			formattedMessage = translateHexColorCodes(message);
+		} else {
+			formattedMessage = message;
+		}
 
-
-
-
-
-
-
-		event.setFormat(format.replace("{message}", player.hasPermission("lpc.colorcodes") && player.hasPermission("lpc.rgbcodes")
-				? colorize(translateHexColorCodes(message)) : player.hasPermission("lpc.colorcodes") ? colorize(message) : player.hasPermission("lpc.rgbcodes")
-				? translateHexColorCodes(message) : message).replace("%", "%%"));
+		event.setFormat(format.replace("{message}", formattedMessage).replace("%", "%%"));
 	}
 
 	private String colorize(final String message) {
