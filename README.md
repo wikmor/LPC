@@ -1,13 +1,13 @@
-# LPC
-A chat formatting plugin for LuckPerms.
+# LPC-Color
+A chat formatting plugin for LuckPerms with support for color and formatting permissions.
 
 
-#Permissions
+# Permissions
 > /lpc reload `lpc.reload`
 
-> ColorCodes `lpc.colorcodes`
+>ColorCodes `lpc.colorcodes`
 
-> RGB + Requried for other formating `lpc.rgbcodes`
+>Reset `lpc.reset`
 
 >Italics `lpc.italics`
 
@@ -18,3 +18,6 @@ A chat formatting plugin for LuckPerms.
 >Bold `lpc.bold`
 
 >Magic `lpc.magic`
+
+>RGB Color Codes `lpc.rgbcodes`
+
