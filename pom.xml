@@ -2,16 +2,16 @@
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>me.wikmor</groupId>
-	<artifactId>lpc-vanillaplus</artifactId>
+	<groupId>dev.noah</groupId>
+	<artifactId>lpc-color</artifactId>
 	<name>LPC-color</name>
-	<description>A chat formatting plugin for LuckPerms.</description>
-	<version>3.6.0</version>
+	<description>A chat formatting plugin for LuckPerms with support for color and formatting permissions.</description>
+	<version>4.0.0</version>
 	<packaging>jar</packaging>
 	
 	<properties>
-		<author>wikmor</author>
-		<main.class>me.wikmor.lpc.LPC</main.class>
+		<author>wikmor, noah</author>
+		<main.class>dev.noah.lpc.LPC</main.class>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -38,7 +38,7 @@
     	<dependency>
            	<groupId>org.spigotmc</groupId>
            	<artifactId>spigot-api</artifactId>
-           	<version>1.19-R0.1-SNAPSHOT</version>
+           	<version>1.20.4-R0.1-SNAPSHOT</version>
         	<scope>provided</scope>
     	</dependency>
         <dependency>
@@ -75,8 +75,8 @@
 					 https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
 				<version>3.10.1</version>
 				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
+					<target>8</target>
+					<source>8</source>
 				</configuration>
 			</plugin>
 			<plugin>
