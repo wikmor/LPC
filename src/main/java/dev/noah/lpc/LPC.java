@@ -1,4 +1,4 @@
-package me.wikmor.lpc;
+package dev.noah.lpc;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.luckperms.api.LuckPerms;
@@ -40,7 +40,7 @@ public final class LPC extends JavaPlugin implements Listener {
 		if (args.length == 1 && "reload".equals(args[0])) {
 			reloadConfig();
 
-			sender.sendMessage(colorize("&aLPC has been reloaded."));
+			sender.sendMessage(unsafeColorize("&aLPC has been reloaded."));
 			return true;
 		}
 
@@ -54,6 +54,7 @@ public final class LPC extends JavaPlugin implements Listener {
 
 		return new ArrayList<>();
 	}
+
 
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onChat(final AsyncPlayerChatEvent event) {
@@ -75,15 +76,88 @@ public final class LPC extends JavaPlugin implements Listener {
 				.replace("{username-color}", metaData.getMetaValue("username-color") != null ? metaData.getMetaValue("username-color") : "")
 				.replace("{message-color}", metaData.getMetaValue("message-color") != null ? metaData.getMetaValue("message-color") : "");
 
-		format = colorize(translateHexColorCodes(getServer().getPluginManager().isPluginEnabled("PlaceholderAPI") ? PlaceholderAPI.setPlaceholders(player, format) : format));
+		format = unsafeColorize(translateHexColorCodes(getServer().getPluginManager().isPluginEnabled("PlaceholderAPI") ? PlaceholderAPI.setPlaceholders(player, format) : format));
 
-		event.setFormat(format.replace("{message}", player.hasPermission("lpc.colorcodes") && player.hasPermission("lpc.rgbcodes")
-				? colorize(translateHexColorCodes(message)) : player.hasPermission("lpc.colorcodes") ? colorize(message) : player.hasPermission("lpc.rgbcodes")
-				? translateHexColorCodes(message) : message).replace("%", "%%"));
+		event.setFormat(format.replace("{message}", colorize(message,player)).replace("%", "%%"));
 	}
 
-	private String colorize(final String message) {
+	// Old colorize method without any checks
+	private String unsafeColorize(final String message) {
 		return ChatColor.translateAlternateColorCodes('&', message);
+	}
+
+	private String colorize(final String message, Player player) {
+		String output = message;
+		//do each step / color on its own and check for permissions for each step
+		if (player.hasPermission("lpc.colorcodes")) {
+			//translate each color individually
+			output = output.replace("&0", ChatColor.BLACK.toString());
+			output = output.replace("&1", ChatColor.DARK_BLUE.toString());
+			output = output.replace("&2", ChatColor.DARK_GREEN.toString());
+			output = output.replace("&3", ChatColor.DARK_AQUA.toString());
+			output = output.replace("&4", ChatColor.DARK_RED.toString());
+			output = output.replace("&5", ChatColor.DARK_PURPLE.toString());
+			output = output.replace("&6", ChatColor.GOLD.toString());
+			output = output.replace("&7", ChatColor.GRAY.toString());
+			output = output.replace("&8", ChatColor.DARK_GRAY.toString());
+			output = output.replace("&9", ChatColor.BLUE.toString());
+
+			output = output.replace("&a", ChatColor.GREEN.toString());
+			output = output.replace("&A", ChatColor.GREEN.toString());
+
+			output = output.replace("&b", ChatColor.AQUA.toString());
+			output = output.replace("&B", ChatColor.AQUA.toString());
+
+			output = output.replace("&c", ChatColor.RED.toString());
+			output = output.replace("&C", ChatColor.RED.toString());
+
+			output = output.replace("&d", ChatColor.LIGHT_PURPLE.toString());
+			output = output.replace("&D", ChatColor.LIGHT_PURPLE.toString());
+
+			output = output.replace("&e", ChatColor.YELLOW.toString());
+			output = output.replace("&E", ChatColor.YELLOW.toString());
+
+			output = output.replace("&f", ChatColor.WHITE.toString());
+			output = output.replace("&F", ChatColor.WHITE.toString());
+		}
+
+		if (player.hasPermission("lpc.magic")) {
+			//translate magic
+			output = output.replace("&k", ChatColor.MAGIC.toString());
+			output = output.replace("&K", ChatColor.MAGIC.toString());
+		}
+		if(player.hasPermission("lpc.bold")) {
+			//translate bold
+			output = output.replace("&l", ChatColor.BOLD.toString());
+			output = output.replace("&L", ChatColor.BOLD.toString());
+		}
+		if(player.hasPermission("lpc.underline")) {
+			//translate underline
+			output = output.replace("&n", ChatColor.UNDERLINE.toString());
+			output = output.replace("&N", ChatColor.UNDERLINE.toString());
+		}
+		if(player.hasPermission("lpc.italics")) {
+			//translate italics
+			output = output.replace("&o", ChatColor.ITALIC.toString());
+			output = output.replace("&O", ChatColor.ITALIC.toString());
+		}
+		if(player.hasPermission("lpc.strikethrough")) {
+			//translate strikethrough
+			output = output.replace("&m", ChatColor.STRIKETHROUGH.toString());
+			output = output.replace("&M", ChatColor.STRIKETHROUGH.toString());
+
+		}
+		if(player.hasPermission("lpc.reset")){
+			//translate reset
+			output = output.replace("&r", ChatColor.RESET.toString());
+			output = output.replace("&R", ChatColor.RESET.toString());
+		}
+
+		if(player.hasPermission("lpc.rgbcodes")){
+			output = translateHexColorCodes(output);
+		}
+
+		return output;
 	}
 
 	private String translateHexColorCodes(final String message) {

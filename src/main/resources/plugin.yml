@@ -11,3 +11,32 @@ commands:
     description: Reload the configuration.
     permission: lpc.reload
     usage: "Usage: /lpc reload"
+
+permissions:
+  lpc.reload:
+    description: Allows the player to reload the configuration.
+    default: op
+  lpc.colorcodes:
+    description: Allows the player to use color codes. (e.g. &a, &b, &c, &d, &e, &f, &0, &1, &2, &3, &4, &5, &6, &7, &8, &9)
+    default: op
+  lpc.reset:
+    description: Allows the player to reset the chat format. (e.g. &r)
+    default: op
+  lpc.bold:
+    description: Allows the player to use bold text. (e.g. &l)
+    default: op
+  lpc.italic:
+    description: Allows the player to use italic text. (e.g. &o)
+    default: op
+  lpc.underline:
+    description: Allows the player to use underline text. (e.g. &n)
+    default: op
+  lpc.strikethrough:
+    description: Allows the player to use strikethrough text. (e.g. &m)
+    default: op
+  lpc.magic:
+    description: Allows the player to use magic text. (e.g. &k)
+    default: op
+  lpc.rgbcodes:
+    description: Allows the player to use RGB color codes. (e.g. &#ff0000)
+    default: op
